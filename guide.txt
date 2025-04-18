@@ -1,0 +1,565 @@
+====Chương 1: React với TypeScript====
+
+##I - Why Coding (Frontend) with Typescript##
+Tài liệu: https://npmtrends.com/typescript
+https://www.npmjs.com/package/typescript
+
+React, Vue => (optional) Vanilla Javascript / Typescript
+Angular => only Typescript
+
+1. Tại sao chọn Javascript ?
+- Vì javascript phổ biến, dễ học (phù hợp với beginners, chưa từng học ngôn ngữ OOP)
+- Rút ngắn thời gian phát triển sản phẩm (code ít hơn typescript)
+
+- Phù hợp với dự án nhỏ /team nhỏ
+ => không quan tâm tới việc mở rộng/tối ưu/bảo trì code
+=> code cho chạy được
+=> người code không cần IDE gợi ý => cần hiểu mình đang làm gì
+
+2. Khi nào cần Typescript (why) ?
+- Dự án lớn (có nhiều thành viên tham gia/nhiều chức năng) 
+=> khối lượng codebase lớn
+=> quan tâm tới việc mở rộng/tối ưu/bảo trì code
+
+- Gợi ý code (từ IDE) khi code
+- Thông báo lỗi khi dịch code (compile), not runtime (sau khi đã build và chạy)
+=> chất lượng sản phẩm cao hơn, ít bugs
+
+
+3. Những khó khăn khi dùng với Typescript ?
+- Biết javascript là chưa đủ => cần học cú pháp của typescript
+- Code nhiều hơn javascript 
+
+Đổi lại:
+- Gợi ý code (từ IDE) khi code
+- Thông báo lỗi khi dịch code (compile), not runtime (sau khi đã build và chạy)
+=> chất lượng sản phẩm cao hơn, ít bugs
+
+4. Để học 1 framework/library với Typescript cần gì ?
+- Có hiểu biết về javascript/typescript
+- Có hiểu biết về OOP. Nếu bạn đã biết các ngôn ngữ như C#, Java... đây là lợi thế
+- Có khả năng đọc source code (optional)
+- Search Google (always) => làm nhiều thì quen tay
+
+Give it a try ? 
+- Bởi vì có thể code song song 1 dự án, dùng cả Javascript lẫn Typescript :v
+
+- Có thể code javascript trong file typescript, còn ngược lại thì không. 
+(Không thể sử dụng cú pháp TS trong file JS)
+
+Xu hướng chuyển dịch của thư viện/framework đang là Typescript ???
+Dev dùng typescript => đỡ bugs
+Máy (dùng javascript, version đã compile từ mã nguồn TS được viết)
+
+=> như vậy javascript không die, mà chẳng qua, cách code javascript cần khác đi 
+
+=> nâng cao chất lượng sản phẩm, đảm bảo tính scale/maintain (các doanh nghiệp cần cái này)
+
+
+##II - Ôn tập kiến thức React với Javascript##
+
+Tài liệu: https://react.dev/
+
+Các kiến thức về React cần nắm vững:
+
+Components (JSX)
+State
+Props
+Hook (useState, useEffect)
+
+##III - Ôn tập Kiến Thức TypeScript##
+
+TypeScript = JavaScript + Khai báo type
+
+Tài liệu:
+https://www.typescriptlang.org/docs/handbook/2/everyday-types.html
+
+Yêu cầu: Nắm được cách khai báo các data type và sử dụng function với TypeScript
+
+Khai báo object với data type/interface
+Định nghĩa function
+
+##IV - Tài liệu sử dụng React với Typescript##
+
+Tài liệu: https://react.dev/learn/typescript
+tài liệu cộng đồng react typscript: https://react-typescript-cheatsheet.netlify.app/ 
+
+Các nguồn học cú pháp của React với TypeScript: https://react.dev/learn/typescript#further-learning
+
+
+Thực chất là chúng ta khai báo component bình thường (giống với javascript), chỉ có điều định nghĩa thêm type cho typescript
+
+
+Nếu bạn sử dụng các framework hoặc công cụ để tạo dự án React, đa phần đã được cấu hình sẵn về TypeScript (không cần cài đặt). Việc của bạn là viết code sử dụng TypeScript
+
+1. Cài Đặt Dự Án Thực Hành
+
+1.Chuẩn bị
+Đảm bảo rằng bạn đã cài đặt Git và Node.js (version 20.14.0)
+
+Bạn vui lòng sử dụng chính xác nodejs v20.14.0 để hạn chế tối đa lỗi xảy ra 
+
+
+2.Cài đặt dự án thực hành
+Lưu ý : đường dẫn nơi lưu dự án thực hành, không nên đặt tên tiếng việt để hạn chế lỗi các bạn nhé
+
+Ví dụ: D:/dự án/react-typescript => thay bằng: D:/du-an/react-typescript
+Bước 1: Download source code https://drive.google.com/file/d/1521fGZXgjyL3BVTf_l_xH5JfGMOjcPww/view
+
+Bước 2: cài đặt thư viện cần thiết
+npm i
+
+Lưu ý về warning/error tại terminal
+
+Bước 3: chạy dự án
+
+npm start (hoặc câu lệnh : npm run dev)
+
+- Cấu trúc dự án:
+	+ vẫn dùng react vite (ban đầu code full = javascript) 
+	+ asset: nơi lưu trữ hình ảnh 
+
+##V - Hello World với React TypeScript##
+// hướng dẫn viết hello world
+
+//giải thích cấu trúc dự án thực hành
+
+//hướng dẫn cách đẩy code lên github/gitlab của chính bạn
+Nếu bạn chưa biết gì về Git, học ngay và luôn tại đây
+
+Bước 1: Tạo repository trên github/gitlab
+
+Bước 2: Đẩy dự án lên repository vừa tạo
+git add .
+git commit -m "init project"
+
+https://stackoverflow.com/questions/2432764/how-do-i-change-the-uri-url-for-a-remote-git-repository
+
+git remote set-url origin new.git.url/here
+
+git push origin master
+
+Bước 3: Minh họa khi code xong 1 video, chỉ cần sử dụng 3 câu lệnh bên dưới
+git add .
+git commit
+git push 
+
+##VI - Component##
+
+Yêu cầu: (với javascript)
+- Đã hiểu tác dụng của component
+- Đã biết cách khai báo và sử dụng component 
+- Sử dụng function component
+
+//code javascript với React Vite (Typescript)
+ https://stackoverflow.com/a/78276639
+
+1. Convert từ javascript sang typescript
+- thay vì định nghĩa file .js (.jsx) => định nghĩa .tsx
+- tên component sẽ viết Hoa chữ đầu tiên
+
+Cách 1:
+const App = ( ) => { 
+	return ( <div> Hello world ts </div>)
+}
+
+Cách 2: 
+const App = ( ) => <div> Hello world ts </div>
+
+
+Lưu ý về code: khuyến khích viết theo cách 1, như vậy cấu trúc rõ ràng (giống OOP), đồng thời, sau này cần thêm logic xử lý thì không cần sửa lại cấu trúc function
+
+
+- Chuyển sang function component với typescript: giống hệt cách kể trên
+Với cách viết 1 ở trên, typescript đủ thông minh để biết đây là component (khi return JSX element)
+
+
+2.Lưu ý về cách định nghĩa function component:
+
+Không nên dùng các cách sau:
+Link giải thích lý do:
+https://github.com/facebook/create-react-app/pull/8177
+
+
+const App: React.FunctionComponent<{}> = ( ) => (
+  <div> Hello world ts </div>
+)
+
+hoặc
+const App: React.FC = () => (
+  <div> Hello world ts </div>
+)
+
+hoặc
+
+const App: React.VoidFunctionComponent<{}> = () => (
+  <div> Hello world ts </div>
+)
+
+##VII - React Function Component/React.FC (Extra)##
+
+1.Giải thích về implicit vs explicit
+
+Implicit programming refers to processes happening behind the scenes in your code. It relies on default behaviors, type inference, and built-in functions to handle tasks without you having to specify every detail.
+
+
+Explicit programming is all about clearly and specifically stating what you want your code to do. It involves directly specifying types, function return values, and other details in your code rather than relying on the language to infer or assume anything.
+
+
+https://solverfox.dev/writing/no-implicit-children/
+
+Explicit props are the ones that are written out in the props interface. 
+
+Implicit props are the ones that @types/react automatically adds.
+
+
+https://react.dev/blog/2024/04/25/react-19-upgrade-guide#removed-proptypes-and-defaultprops
+
+
+https://www.totaltypescript.com/you-can-stop-hating-react-fc
+
+
+Bạn có thể sử dụng React.FC và function component, tùy thuộc vào sở thích vào thói quen của bạn.
+
+Tuy nhiên, mình khuyến khích “đơn giản nhất có thể”, nên không “bắt buộc” phải sử dụng các công cụ trên.
+
+##VIII - Props##
+
+//hardcode data tại component cha
+const todos = [
+    {
+        id: 1,
+        title: "Learn React TypeScript",
+        isComplete: false
+    },
+    {
+        id: 2,
+        title: "Subscribe Youtube HoiDanIT",
+        isComplete: true
+    },
+    {
+        id: 3,
+        title: "Learn English",
+        isComplete: true
+    },
+]
+
+
+//sử dụng props dưới dạng any
+
+//viết props dưới dạng type/interface
+
+##IX - Props##
+
+//hardcode data tại component cha
+const todos = [
+    {
+        id: 1,
+        title: "Learn React TypeScript",
+        isComplete: false
+    },
+    {
+        id: 2,
+        title: "Subscribe Youtube HoiDanIT",
+        isComplete: true
+    },
+    {
+        id: 3,
+        title: "Learn English",
+        isComplete: true
+    },
+]
+
+
+
+//sử dụng props dưới dạng any
+
+//viết props dưới dạng type/interface
+
+##X - Type vs Interface (Extra)##
+
+Tham khảo các topics sau:
+https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#interfaces
+
+https://www.typescriptlang.org/play/?#example/types-vs-interfaces
+
+https://stackoverflow.com/questions/37233735/interfaces-vs-types-in-typescript/52682220#52682220
+
+##XI -  Default/Optional Props##
+//todo
+Tạo component todo.input.tsx
+
+##XII - TypeScript Generics (Extra)##
+Tài liệu:
+https://www.typescripttutorial.net/typescript-tutorial/typescript-generics/
+https://www.w3schools.com/typescript/typescript_basic_generics.php
+
+=> generic được sử dụng, khi "chưa biết trước kiểu type" (được dùng nhiều khi viết function tổng quát/reusable code)
+
+Ví dụ:    
+//function useState<S>(initialState: S | (() => S)): [S, Dispatch<SetStateAction<S>>];
+
+Hàm useState là 1 generic, có thể truyền vào initialState với kiểu type (S - chưa biết trước). 
+
+hàm này sẽ trả về 2 giá trị [S, Dispatch<SetStateAction<S>>]
+=> đây là 1 array, phần tử đầu tiên là biến với type = S, phần tử thứ 2 là function giúp cập nhật giá trị.
+
+Cụ thể:
+const [name, setName] = useState("eric");
+
+ở đây, biến truyền vào có kiểu giá trị là "string"
+
+useState<string>(initialState: string | (() => string)): [string, Dispatch<SetStateAction<string>>];
+
+Do hàm useState trả về 1 array theo cú pháp trên => const [name, setName] =... có nghĩa là:
+biến name (phần tử đầu tiên) sẽ có kiểu giá trị là string 
+biến setName sẽ có khả năng cập nhật được biến name , do kiểu giá trị là Dispatch<SetStateAction<string>>
+
+##XIII - Sử dụng State##
+//todo
+//list Todo là state của cha, từ cha truyền xuống xon
+
+//sử dụng event với typescript
+https://stackoverflow.com/a/42645711
+
+##XIV - Truyền function từ cha sang con##
+
+//tính năng add todo
+
+//random number between range
+https://stackoverflow.com/a/29246176
+
+
+##XV - Tổng kết về chapter##
+
+Kiến thức trọng tâm đã học, là migrate (chuyển đổi) từ code React JavaScript sang React với TypeScript, bao gồm:
+Component
+Props
+State
+Thực hành qua ứng dụng Todo
+
+##XVI - Cấu trúc dự án##	
+- Mình có 2 file cấu hình:
+	+ tsconfig.app.jsona chạy ở môi trường browser
+	+ tsconfig.node.json chạy ở môi trường server trong này bao gồm luôn vite.config.ts(là cấu hình quá trình dịch code bởi vite -> pải làm ở server)
+
+Chung quy là môi trường javascript chạy khác nhau: ví dụ khi cài nodejs thì mặc định có kèm theo 1 vài thư viện như fs(file stream) những thư viện này có thể import và sử dụng trong những file chỉ chạy ở backend (server) như vite.config.ts - ko dùng được những thư viện này nếu import nó vào các component render ra view 
+
+- hiện tại nếu để mặc định -> thì khi code react kiểu JS thì nó sẽ ko gởi ý code vì ban đầu cấu hình như dự án code TS -> cấu hình thêm file tsconfig.app.jsona (vì code ở component chạy ở môi trường browser) thêm ""allowJs": true,"
+
+====Chapter 2: Thực Hành Dự Án Portfolio====
+Thực hành và luyện tập React với TypeScript với dự án Portfolio
+
+##I - Dự án thực hành (JavaScript)##
+Mục tiêu: test thành quả đạt được (mục tiêu cần làm)
+
+Bước 1: 
+Download dự án https://drive.google.com/file/d/1Lu3gzX4ikWCV-4YWiawDGna74hhPna06/view
+
+Bước 2: Cài đặt thư viện
+npm i
+
+Bước 3: chạy dự án
+npm run dev
+
+
+//todo
+Giải thích cấu trúc dự án thực hành
+
+##II - ích hợp TypeScript vào dự án React JavaScript##
+
+Tài liệu: 
+https://stackoverflow.com/a/75192263
+https://github.com/vitejs/vite/discussions/6799#discussioncomment-4557486
+
+Bước 1: Cài đặt các thư viện hỗ trợ cho typescriptFd
+npm i --save-dev --save-exact @types/node@22.7.5 typescript@5.6.3 typescript-eslint@8.8.1
+
+Bước 2: Cấu hình cho TypeScript
+//todo
+Ghi đè các file từ dự án React Vite Typescript, bao gồm tsconfig, eslint…
+
+Mẹo: lấy các package từ dự án React Vite Typescript
+
+Với typescript, chỉ dùng cho developer (không liên quan tới browser - javascript), nên chỉ cài đặt ở dev Dependency
+
+Bước 3: Test dự án
+//todo
+
+##III - Hero Section (TypeScript)##
+
+declare module "*.png";
+declare module "*.jpg";
+declare module "*.jpeg";
+declare module "*.svg";
+declare module "*.gif";
+
+##IV - TypeScript Absolute Import##
+
+Mục tiêu: import sử dụng absolute path
+
+Bước 1: cấu hình Vite
+npm i --save-exact --save-dev vite-tsconfig-paths@5.0.1
+
+https://stackoverflow.com/questions/68241263/absolute-path-not-working-in-vite-project-react-ts
+
+https://github.com/aleclarson/vite-tsconfig-paths
+
+Bước 2: khai báo Typescript baseUrl và path
+
+Về typescript path: https://www.typescriptlang.org/tsconfig/#paths
+
+Bước 3: test import
+
+##V - Hoàn thiện HomePage Screen##
+
+https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
+
+//bổ sung file vite-env.d.ts
+
+/// <reference types="vite/client" />
+
+##VI - React Context với TypeScript##
+
+Tài liệu: https://react.dev/reference/react/createContext#creating-context
+
+JSX children props: https://react.dev/learn/passing-props-to-a-component#passing-jsx-as-children
+
+Sử dụng với Context với typescript:
+https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/context/
+
+##VII - useRef với TypeScript##
+
+Miêu tiêu: làm tính năng auto-scroll tới section mong muốn
+
+https://stackoverflow.com/a/52528619
+
+
+##VIII - Tổng kết về chapter##
+//todo
+
+
+//upload CV lên google drive, view online
+Bước 1: Upload CV dưới định dạng .pdf
+
+Bước 2: Share Link
+//nhớ test link trước khi share
+https://stackoverflow.com/a/63627688
+
+
+https://stackoverflow.com/a/74457365
+
+
+====Chapter 3: Deploy Production - Triển Khai Dự Án Thực Tế====
+Hướng dẫn triển khai dự án thực hành với tên miền thực tế
+
+
+1. Create Vercel Account
+//todo : nếu bạn đã có tài khoản Vercel rồi, có thể bỏ qua video này
+
+2. Link Vercel với Github
+//todo
+
+3. Triển khai dự án React Vite với Vercel
+
+//update source code frontend
+
+//vercel.json
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
+
+Cần chuẩn bị:
+Tài khoản github, và đã đẩy source code lên github
+
+Đã có tài khoản Vercel, và liên kết với Github thành công
+
+Bước 1: đăng nhập vào Vercel 
+Trang chủ: https://vercel.com/
+
+Trang login: https://vercel.com/login
+
+Bước 2: Triển khai với Vercel
+
+Lưu ý: cấu hình cài đặt thư viện với yarn
+Sử dụng câu lệnh cài đặt sau: yarn install
+
+4. Mua Tên Miền (Mắt Bão)
+
+Tài liệu: https://www.matbao.net/
+
+
+Trong khóa học này, mình lựa chọn “mắt bão” để mua tên miền, một nhà cung cấp hàng đầu trong nước (vì nó dễ thanh toán & chấp nhận sử dụng ngân hàng nội địa)
+
+Nếu bạn có thẻ visa/master card, có thể mua với nhà cung cấp nước ngoài.
+
+
+Lưu ý:
+Trong quá trình mua tên miền, nếu bạn gặp khó khăn gì, thì đừng ngại gọi support của mắt bão nhé. Thông tin nó ghi hết trên trang chủ ấy.
+
+Yên tâm là Mắt Bão thuộc top đầu của Việt Nam về kinh doanh tên miền các bạn nhé.
+
+Support 24/7
+1900 1830 (1000 đ/phút)
+
+Tư vấn miền Nam
+(028) 3622 9999
+
+Tư vấn miền Bắc
+(024) 35 123456
+
+
+5. Mapping tên miền tới Vercel
+
+Yêu cầu: bạn đã mua và sở hữu tên miền (domain)
+
+Bước 1: Cập nhật bản ghi với tên miền
+Tài liệu: https://vercel.com/guides/a-record-and-caa-with-vercel
+Cập nhật bản ghi A, với ip: 76.76.21.21
+Nơi thực hiện: trang quản lý của đối tác bạn mua tên miền
+
+Bước 2: Tạo custom domain
+Nơi thực hiện: tại project bạn hosting trên Vercel
+
+Nếu có lỗi phát sinh vui lòng chờ đợi tối đa 24h để chắc chắn mọi thứ sẽ hoạt động chính xác bạn nhé.
+//fix lỗi khi vào website, mặc định là theme dark
+//app.context.tsx
+    const [theme, setTheme] = useState<ThemeContextType>(() => {
+        const initialTheme =
+            (localStorage?.getItem("theme") ?? "dark") as ThemeContextType;
+        return initialTheme;
+    });
+
+6. Cách tự code dự án React với TypeScript của bạn
+
+1.Về ý tưởng
+Tham khảo các website về làm portfolio:
+
+Template 1:
+ https://github.com/soumyajit4419/Portfolio
+
+Template 2:
+https://github.com/said7388/developer-portfolio
+
+
+2.Về kiến thức
+
+Đọc lại các cú pháp với typescript
+
+Tham khảo các source codebases:
+https://react-typescript-cheatsheet.netlify.app/docs/basic/recommended/codebases/
+
+
+
+
+
+
+
+
+
+
+
+
+
